@@ -14,7 +14,7 @@ def get_region_part():
         name = list[i].get("name")
         icon = list[i].get("icon")
         strs = "{\"id\":"+str(id)+",\"name\":\""+name+ "\"" + ",\"icon\":\""+icon+"\"}"
-        region.append(strs)
+        region.append(strs.encode("utf-8"))
     return region
 
 #获取队员简要信息列表
@@ -61,5 +61,3 @@ def get_team_list_part(areaId):
                + ",\"all_name\":\"" + all_name + "\"}"
         team.append(strs)
     return  team
-
-print(get_team_list_part(1))
