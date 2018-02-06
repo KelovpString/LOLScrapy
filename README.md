@@ -10,7 +10,33 @@
    大概做完调研之后对目标也有了一定的方向，此部分作为基础数据的更新，暂时会分战队/个人/英雄的方式来采集LPL职业联赛以及S系列赛事的数据。
 
 ### 2、该部分的实现
-  调研后决定从766和玩家赛事两个部分下手 开搞，项目已创建
+  	调研后决定从766和玩家赛事两个部分下手 开搞，项目已创建
+	766星竞界由于数据是自己通过 API 来获取的，所以接口外漏。。然后很简单，766这边的数据我用来直接拉取存库就好了
+
+#### 1.766星竞界数据拉取[选手数据有效期至2017-夏季赛转会期前（韦酱还没有退役嘤嘤嘤）]
+	地区编号 ：http://lol.766.com/db/lol/agendaCmpEvent?area=1
+ - 队员简要信息列表：http://lol.766.com/db/lol/player/list?areaId=&prefix= *[其中地区id在上面，prefix指首字母，取值a-z]*
+ - ​队伍简要信息列表：http://lol.766.com/db/lol/team/list?areaId=1 *[地区id你懂得]*
+ - 总-Rank：http://lol.766.com/db/lol/api/rank/ 
+ - 总-地区排行：http://lol.766.com/db/lol/rank/teamList?orderType=1&orderKey=score&page=1&size=20&areaId=1 *[参数没做详细的查探和修正]*
+ - LPL联赛战队榜 http://lol.766.com/db/lol/competitionEvent/47/teamRanking?page=1&orderKey=winRate&orderType=1&stageId=&areaId=  *[参数填少会有很多信息，在拉表 的时候详细查看]*
+ - LPL联赛选手榜 http://lol.766.com/db/lol/competitionEvent/47/playerRanking?page=1&orderKey=displayScore&orderType=1&stageId=&areaId=&gamePositionId=
+ - LPL联赛英雄榜 http://lol.766.com/db/lol/competitionEvent/47/heroRanking?page=1&orderKey=bpRate&orderType=1&stageId=&areaId=
+ - LPL联赛积分榜 http://lol.766.com/db/lol/competitionEvent/47/leagueRank?orderKey=score
+    1. 其中 competitionEvent 后面的数字指 对应的联赛
+    2. 包含一个用途不明的URL http://lol.766.com/db/lol/competitionEvent/47/intro
+  >* 2016LPL区域预选赛    47
+  >* 2016LPL夏季赛升降级赛 75
+  >* 2016LPL夏季赛  62
+  >* 2016LPL春季赛 51
+  >* 2015LPL区域预选赛 33
+  >* 2015LPL夏季赛 32  
+  >* 2015LPL春季赛 30
+  >* 2014LPL夏季赛 41
+  >* 2014LPL春季赛  47
+
+#### 2.玩加赛事数据拉取[全方位的数据，但是没有图文并茂，我觉得很普通]
+	由于发觉这里玩加赛事使用Ajax来请求数据，但是并没有API给暴露出来，这里有两条路可以走：要么使用Scrapy采集[暴力但通用]，要么尝试伪装成浏览器来请求他list的URL（这里是个坑我还完全没搞清这个，不过暂时还不用管，先去做上面的那个，完事再说）
 ### 3、更新日志
-> - 创建项目  2018-2-06
+> - 创建项目  更新方式 Log  2018-2-06
 
