@@ -60,16 +60,14 @@ def get_team_list_part(areaId):
         id = temp[i].get("id")
         name = temp[i].get("abbreviation")
         icon = temp[i].get("team_icon")
-        history = temp[i].get("history")
         all_name =  temp[i].get("name")
         strs = "{\"id\":" + str(id) \
                + ",\"name\":\"" + name + "\"" \
                + ",\"icon\":\"" + icon + "\"" \
-               + ",\"history\":\"" + history + "\"" \
                + ",\"all_name\":\"" + all_name + "\"}"
         team.append(strs)
     return  team
-
+print get_team_list_part(1)
 #总榜 - 766数据来源
 def get_word_rank_part():
     pass
