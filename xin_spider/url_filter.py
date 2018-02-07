@@ -1,5 +1,6 @@
 # coding=utf-8
 # 存储要用到的所有 URL
+#本项目因为一些问题使用 py2.7
 
 BASE_URL = "http://lol.766.com/db/lol/"
 

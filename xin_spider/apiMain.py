@@ -1,6 +1,6 @@
 # coding=utf-8
 from url_filter import *
-from urllib import urlopen,quote
+from urllib import urlopen
 import json
 
 #获取地区信息
