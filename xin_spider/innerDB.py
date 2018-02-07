@@ -32,11 +32,18 @@ def inner_player_list_part():
                 cur.connection.commit()
                 print "### innnering :"+str(temp)
     print "End Inner"
+
+#插入766招牌四宝
+#插入LPL战队榜
+def inner_team_rank_main_part():
+    pass
 #更新 -Main
 try:
     #国家信息更新完毕
     #inner_region_part()
-    inner_player_list_part()
+    #队员部分信息更新完毕
+    #inner_player_list_part()
+    inner_team_rank_main_part()
 finally:
     cur.close()
     conn.close()

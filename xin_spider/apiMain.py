@@ -69,3 +69,25 @@ def get_team_list_part(areaId):
                + ",\"all_name\":\"" + all_name + "\"}"
         team.append(strs)
     return  team
+
+#总榜 - 766数据来源
+def get_word_rank_part():
+    pass
+
+#--------战队四大属性--------
+
+#LPL联赛战队榜
+def get_team_rank_main_part():
+    pass
+
+#LPL联赛选手榜
+def get_team_rank_player_part():
+    pass
+
+#LPL联赛英雄榜
+def get_team_rank_legend_part():
+    pass
+
+#LPL联赛积分榜
+def get_team_rank_score_part():
+    pass
