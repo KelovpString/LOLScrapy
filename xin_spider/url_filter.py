@@ -36,6 +36,10 @@ GAME_DICT = {
 def get_play_list_url(areaId, prefix):
     return  BASE_URL + "player/list?areaId=" + str(areaId) + "&prefix=" + prefix
 
+#队员详细信息列表
+def get_play_info_url(xin_id):
+    return BASE_URL + "api/player/" + str(xin_id)
+
 #队伍简要信息列表
 def get_team_list_url(areaId):
     return  BASE_URL + "team/list?areaId=" + str(areaId)
