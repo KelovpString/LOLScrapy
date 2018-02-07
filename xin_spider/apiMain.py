@@ -34,12 +34,20 @@ def get_player_list_part(areaId, prefix):
         region = temp[i].get("nationalityIcon")
         #国家ID
         regionId = temp[i].get("nationalityId")
-        strs = "{\"id\":" + str(id) \
+        if regionId is None:
+            strs = "{\"id\":" + str(id) \
+                   + ",\"name\":\"" + name + "\"" \
+                   + ",\"team\":\"" + team + "\"" \
+                   + ",\"icon\":\"" + icon + "\"" \
+                   + ",\"regionId\":" + str(0) \
+                   + ",\"region\":\"" + region + "\"}"
+        else:
+            strs = "{\"id\":" + str(id) \
                + ",\"name\":\"" + name + "\"" \
                + ",\"team\":\"" + team + "\"" \
                + ",\"icon\":\"" + icon + "\"" \
-               + ",\"regionId\":\"" + region + "\"" \
-               + ",\"region\":\"" + str(regionId) + "\"}"
+               + ",\"regionId\":" + str(regionId) \
+               + ",\"region\":\"" + region + "\"}"
         player.append(strs)
     return player
 
